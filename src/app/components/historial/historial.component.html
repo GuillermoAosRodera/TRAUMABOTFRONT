@@ -21,21 +21,12 @@
       <strong>Diagnóstico:</strong> {{ consultaSeleccionada.lesion_sugerida }}
     </p>
 
-    <!-- Mostrar el historial de mensajes -->
-    <div *ngFor="let mensaje of consultaSeleccionada.conversacion" class="mensaje">
+    <div *ngFor="let mensaje of mensajes" class="mensaje">
       <p class="mensaje-usuario">
-        <strong>{{ nombreUsuario }}:</strong> {{ mensaje.mensaje_usuario }}
+        <strong>{{ nombreUsuario }}:</strong> {{ mensaje.usuario }}
       </p>
-
-      <!-- Mostrar respuesta del asistente con HTML para diagnóstico -->
-      <div *ngIf="mensaje.respuesta_asistente_html" class="mensaje-bot">
-        <strong>Asistente:</strong> 
-        <div [innerHTML]="mensaje.respuesta_asistente_html"></div>
-      </div>
-
-      <!-- Si no hay HTML, mostrar el texto plano -->
-      <p *ngIf="!mensaje.respuesta_asistente_html" class="mensaje-bot">
-        <strong>Asistente:</strong> {{ mensaje.respuesta_asistente_texto }}
+      <p class="mensaje-bot">
+        <strong>Asistente:</strong> {{ mensaje.asistente }}
       </p>
     </div>
   </div>
