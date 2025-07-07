@@ -1,0 +1,114 @@
+
+/* Centrado principal */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+/* Caja del formulario */
+.login-box {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 2.5rem 2rem;
+  border-radius: 2rem;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Título */
+.login-heading {
+  text-align: center;
+  margin-bottom: 1.8rem;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Campos del formulario */
+.form-group {
+  margin-bottom: 1.5rem;
+
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #444;
+  }
+
+  .input-icon {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 0.8rem;
+    padding: 0.5rem 0.75rem;
+    background-color: #f9f9f9;
+
+    i {
+      margin-right: 0.5rem;
+      font-size: 1.2rem;
+      color: #555;
+    }
+
+    input {
+      border: none;
+      outline: none;
+      width: 100%;
+      background: transparent;
+      font-size: 1rem;
+    }
+  }
+}
+
+/* Opciones (como "¿Olvidaste tu contraseña?") */
+.form-options {
+  text-align: right;
+  margin-bottom: 1rem;
+
+  .forgot-password {
+    font-size: 0.9rem;
+    color: #007bff;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+/* Botón de login */
+.btn-login {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+}
+
+/* Enlace para registrarse */
+.register-option {
+  text-align: center;
+  margin-top: 1.2rem;
+  font-size: 0.95rem;
+
+  a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,0 +1,114 @@
+.perfil-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f4f7fb;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+
+    label {
+      font-size: 14px;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px 15px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      transition: border-color 0.3s ease;
+
+      &:focus {
+        border-color: #007bff;
+        outline: none;
+      }
+
+      &.ng-invalid.ng-touched {
+        border-color: #dc3545;
+      }
+    }
+  }
+
+  .form-group input[type="checkbox"] {
+    margin-right: 10px;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+
+    &:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+    }
+  }
+
+  .form-group.checkbox-group {
+    display: flex;
+    align-items: center;
+
+    label {
+      margin: 0;
+      font-weight: normal;
+      font-size: 16px;
+      color: #555;
+    }
+
+    input[type="checkbox"] {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  // Responsive design for smaller screens
+  @media screen and (max-width: 768px) {
+    .perfil-container {
+      padding: 15px;
+      box-shadow: none;
+      background-color: #fff;
+    }
+
+    h2 {
+      font-size: 20px;
+    }
+
+    .form-group input {
+      font-size: 14px;
+      padding: 10px;
+    }
+
+    .btn {
+      font-size: 14px;
+      padding: 10px;
+    }
+  }
+}

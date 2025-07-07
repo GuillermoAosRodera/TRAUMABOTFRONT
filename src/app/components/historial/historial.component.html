@@ -1,0 +1,56 @@
+<app-header></app-header>
+<div class="historial-container">
+  <div class="historial-sidebar">
+    <h2>Historial de Consultas</h2>
+
+    <!-- Lista de lesiones -->
+    <div class="consulta-lista">
+      <div *ngFor="let consulta of historialConsultas" 
+           (click)="seleccionarConsulta(consulta)" 
+           class="consulta-item">
+        <span class="consulta-nombre">{{ consulta.lesion_sugerida || 'Sin diagnóstico' }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Detalles de la consulta seleccionada -->
+  <div class="consulta-detalle" *ngIf="consultaSeleccionada">
+    <h3>Consulta: {{ consultaSeleccionada.zona }}</h3>
+
+    <p *ngIf="consultaSeleccionada.lesion_sugerida">
+      <strong>Diagnóstico:</strong> {{ consultaSeleccionada.lesion_sugerida }}
+    </p>
+
+    <!-- Mostrar el historial de mensajes -->
+    <div *ngFor="let mensaje of consultaSeleccionada.conversacion" class="mensaje">
+      <p class="mensaje-usuario">
+        <strong>{{ nombreUsuario }}:</strong> {{ mensaje.mensaje_usuario }}
+      </p>
+
+      <!-- Mostrar respuesta del asistente con HTML para diagnóstico -->
+      <div *ngIf="mensaje.respuesta_asistente_html" class="mensaje-bot">
+        <strong>Asistente:</strong> 
+        <div [innerHTML]="mensaje.respuesta_asistente_html"></div>
+      </div>
+
+      <!-- Si no hay HTML, mostrar el texto plano -->
+      <p *ngIf="!mensaje.respuesta_asistente_html" class="mensaje-bot">
+        <strong>Asistente:</strong> {{ mensaje.respuesta_asistente_texto }}
+      </p>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-content">
+    <p>&copy; 2025 Asistente Médico Deportivo. Todos los derechos reservados.</p>
+    <div class="redes-sociales">
+      <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+        <img src="assets/img/instagram.png" alt="Instagram" />
+      </a>
+      <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+        <img src="assets/img/twitter.png" alt="Twitter" />
+      </a>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,28 @@
+<div class="chatbot-header">
+  <div class="chatbot-title">
+    <img src="assets/img/Chatbot.PNG" alt="Bot Icon" class="bot-icon" (click)="irAInicio()" />
+    <h1>TRAUMABOT</h1>
+  </div>
+
+  <!-- Mostrar solo si el usuario ha iniciado sesión -->
+  <div class="chatbot-user-info" *ngIf="isLoggedIn">
+    <span class="user-name" (click)="toggleSettingsMenu()">
+      {{ nombreUsuario?.toUpperCase() }}
+    </span>
+
+    <!-- Menú desplegable de configuración -->
+    <div *ngIf="settingsMenuOpen" class="settings-menu">
+      <button (click)="goToHistorial()">Historial de Lesiones</button>
+      <button (click)="logout()">Cerrar sesión</button>
+    </div>
+
+    <!-- Selector de avatar -->
+    <div class="avatar-selector">
+      <img [src]="avatarUrl" alt="Avatar" class="avatar" (click)="toggleAvatarMenu()" />
+      <div *ngIf="avatarMenuOpen" class="avatar-menu">
+        <img src="assets/img/Hombre.PNG" alt="Hombre" (click)="setAvatar('male')" />
+        <img src="assets/img/Mujer.PNG" alt="Mujer" (click)="setAvatar('female')" />
+      </div>
+    </div>
+  </div>
+</div>

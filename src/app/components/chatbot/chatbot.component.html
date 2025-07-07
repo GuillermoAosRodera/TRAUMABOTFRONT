@@ -1,0 +1,50 @@
+<app-header></app-header>
+
+<!-- LAYOUT PRINCIPAL -->
+<div class="main-layout">
+  <!-- BARRA LATERAL IZQUIERDA -->
+  <div class="sidebar">
+    <h2>¿Dónde te duele?</h2>
+    <div class="zona-buttons">
+      <button *ngFor="let zona of zonas" (click)="seleccionarZona(zona)" class="zona-button">
+        <span>{{ zona.nombre }}</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ZONA DE CHAT A LA DERECHA -->
+  <div class="chat-wrapper" *ngIf="zonaSeleccionada">
+    <div class="chat-header">
+      <h3>Consultando sobre: {{ zonaSeleccionada }}</h3>
+    </div>
+
+    <!-- MENSAJES DEL CHAT -->
+    <div class="chat-messages">
+      <div class="mensaje-wrapper" *ngFor="let mensaje of mensajes">
+        <div class="mensaje usuario" *ngIf="mensaje.usuario">
+          <span class="usuario-nombre">{{ nombreUsuario }}:</span> {{ mensaje.usuario }}
+        </div>
+
+        <div class="mensaje bot" *ngIf="mensaje.bot" [innerHTML]="mensaje.bot">
+          <!-- El mensaje del bot se renderiza aquí con formato HTML -->
+        </div>
+      </div>
+    </div>
+
+    <!-- INPUT ACTIVO -->
+    <div class="chat-input" *ngIf="!cerrado">
+      <input
+        [(ngModel)]="entradaUsuario"
+        (keydown.enter)="enviarMensaje()"
+        placeholder="Escribe tu mensaje..."
+      />
+      <button (click)="enviarMensaje()">Enviar</button>
+    </div>
+
+    <!-- BLOQUE SI EL CASO ESTÁ CERRADO -->
+    <div class="chat-cierre" *ngIf="cerrado">
+      <p>Este caso ha sido cerrado con un diagnóstico.</p>
+      <button class="nuevo-caso-btn" (click)="nuevoCaso()">Nuevo caso</button>
+    </div>
+  </div>
+</div>

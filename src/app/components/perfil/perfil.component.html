@@ -1,0 +1,35 @@
+<div>
+  <h2>Actualizar Perfil</h2>
+  <form [formGroup]="perfilForm" (ngSubmit)="updatePerfil()">
+    <div>
+      <label for="current_password">Contraseña Actual</label>
+      <input formControlName="current_password" type="password" placeholder="Contraseña actual" />
+      <div *ngIf="perfilForm.get('current_password')?.invalid && perfilForm.get('current_password')?.touched">
+        <small *ngIf="perfilForm.get('current_password')?.hasError('required')">La contraseña actual es obligatoria.</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="new_username">Nuevo Nombre de Usuario</label>
+      <input formControlName="new_username" type="text" placeholder="Nuevo nombre de usuario" />
+      <div *ngIf="perfilForm.get('new_username')?.invalid && perfilForm.get('new_username')?.touched">
+        <small *ngIf="perfilForm.get('new_username')?.hasError('minlength')">El nombre de usuario debe tener al menos 3 caracteres.</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="new_password">Nueva Contraseña</label>
+      <input formControlName="new_password" type="password" placeholder="Nueva contraseña" />
+      <div *ngIf="perfilForm.get('new_password')?.invalid && perfilForm.get('new_password')?.touched">
+        <small *ngIf="perfilForm.get('new_password')?.hasError('minlength')">La contraseña debe tener al menos 6 caracteres.</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="new_password_confirmation">Confirmar Nueva Contraseña</label>
+      <input formControlName="new_password_confirmation" type="password" placeholder="Confirmar nueva contraseña" />
+    </div>
+
+    <button type="submit" [disabled]="perfilForm.invalid">Actualizar Perfil</button>
+  </form>
+</div>

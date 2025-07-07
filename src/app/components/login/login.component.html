@@ -1,0 +1,52 @@
+<div class="background-shape fondo"></div>
+
+<main class="login-container">
+  <div class="login-box">
+    <h2 class="login-heading">LOGIN</h2>
+
+    <form (ngSubmit)="onLogin()" #loginForm="ngForm" class="login-form">
+      <div class="form-group">
+        <label for="usuario">Email o Nombre de Usuario</label>
+        <div class="input-icon">
+          <i class="bi bi-person-fill"></i>
+          <input
+            type="text"
+            id="usuario"
+            name="usuario"
+            [(ngModel)]="loginData.user"
+            placeholder="Email o Nombre de Usuario"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Contraseña</label>
+        <div class="input-icon">
+          <i class="bi bi-lock-fill"></i>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            [(ngModel)]="loginData.password"
+            placeholder="********"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="form-options">
+        <a routerLink="/recuperacion-password" class="forgot-password">
+          ¿Olvidaste tu contraseña?
+        </a>
+      </div>
+
+      <button type="submit" class="btn-login">LOGIN</button>
+
+      <div class="register-option">
+        ¿No tienes cuenta?
+        <span class="enlace" (click)="goToRegister()">Regístrate aquí</span>
+      </div>
+    </form>
+  </div>
+</main>
